@@ -11,23 +11,46 @@ extern crate libc;	// Needed for string interop
 use libc::{c_char};
 use std::ffi::CStr;
 
-fn main()
-{
+/*
 
+  Numeric data types
+
+*/
+
+// Integer or Int16
+#[no_mangle]
+pub extern fn rsSumTwoIntegers(a: i16, b: i16) -> i16 {
+	a + b
 }
 
-// Numeric data types
+// Long or Int32
+#[no_mangle]
+pub extern fn rsSumTwoLongs(a: i32, b: i32) -> i32 {
+	a + b
+}
+
+// Single or Float32
 #[no_mangle]
 pub extern fn rsSumTwoSingles(a: f32, b: f32) -> f32 {
 	a + b
 }
 
+// Double or Float64
 #[no_mangle]
 pub extern fn rsSumTwoDoubles(a: f64, b: f64) -> f64 {
 	a + b
 }
 
-// String data types
+// Extended or Number, that is, 80 bits of precision, are not supported in Rust :(
+
+
+/*
+
+  String data types
+
+*/  
+
+// ASCIIZ
 #[no_mangle]
 pub extern fn rsPrintASCIIZ(input: *const c_char){
 	println!("---");
