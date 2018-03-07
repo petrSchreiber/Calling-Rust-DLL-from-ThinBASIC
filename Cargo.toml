@@ -1,0 +1,11 @@
+[package]
+name = "rust_interop"
+version = "0.1.0"
+authors = ["petrSchreiber <petrschreiber@gmail.com>"]
+
+[dependencies]
+libc = "0.2"
+
+[lib]
+name = "rust_interop"
+crate-type = ["cdylib"]

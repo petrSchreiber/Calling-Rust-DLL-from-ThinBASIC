@@ -1,0 +1,29 @@
+uses "console", "file"
+
+#default declare checkMissing true                        ' Useful to catch errors in testing phase
+
+$RUST_INTEROP_DLL = "..\target\release\rust_interop.dll"  ' Hehe, this is here just for comfort, in production
+                                                          ' version the path is not needed, just lay the DLL
+                                                          ' by the script
+ 
+declare function rsSumTwoSingles lib $RUST_INTEROP_DLL alias "rsSumTwoSingles" (byval a as single, byval b as single) as single
+declare function rsSumTwoDoubles lib $RUST_INTEROP_DLL alias "rsSumTwoDoubles" (byval a as double, byval b as double) as double
+
+declare sub      rsPrintASCIIZ   lib $RUST_INTEROP_DLL alias "rsPrintASCIIZ"   (byref s as asciiz)
+
+function tbMain()
+  
+  printl "rsSumTwoSingles" in 10
+  printl format$(rsSumTwoSingles(1.1, 2.2))
+  printl
+  
+  printl "rsSumTwoDoubles" in 10
+  printl format$(rsSumTwoDoubles(1.1, 2.2))
+  printl
+    
+  printl "rsPrintASCIIZ" in 10    
+  rsPrintASCIIZ("Hello Rust, I am ThinBASIC")
+  
+  waitkey
+  
+end function
