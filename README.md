@@ -8,7 +8,7 @@ You will need Rust, to compile the DLL and ThinBASIC to call it.
 
 ### Installing Rust
 * Download and install the [Build Tools for Visual Studio](https://www.visualstudio.com/cs/downloads/?q=Build+Tools+for+Visual+Studio).
-* [Install Rust](https://www.rust-lang.org/en-US/install.html) via Rustup. **Beware:** You will want to customize the installation to ensure 32bit pipeline currently needed by ThinBASIC:
+* [Install Rust](https://www.rust-lang.org/en-US/install.html) via Rustup. **Please** customize the installation to ensure 32 bit pipeline currently needed by ThinBASIC:
   * Run the rustup-init.exe
   * Press *2* to alter the default settings
   * Enter *i686-pc-windows-msvc*
@@ -20,9 +20,9 @@ You will need Rust, to compile the DLL and ThinBASIC to call it.
 A bit more _basic_ indeed. Just [download the installer](http://www.thinbasic.com/index.php/download/thinbasic-beta-1-10-4-0/) of the bleeding edge version.
 
 ### How to make the DLL?
-Checkout this repo and GOTO root directory (where this README is).
-Fire up a console and cast the spell `cargo rustc --release`.
-You will hear a wolf howl and the DLL will appear in `target/release`
+* Checkout this repo and GOTO root directory (where this README is).
+* Fire up a console and cast the spell `cargo rustc --release`.
+* You will hear a wolf howl and the DLL will appear in `target/release`
 
 ### How to test the DLL?
 Run the script _test/test_lib.tbasic_.
