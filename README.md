@@ -29,4 +29,5 @@ Run the script _test/test_lib.tbasic_.
 
 ## IDE recommendations
 I strongly recommend [Sublime Text 3](https://www.sublimetext.com/3) for Rust editing. It is very elegant. Just boost it with [rust-enhanced](https://github.com/rust-lang/rust-enhanced) plugin.
+
 For ThinBASIC, grab ThinAIR, which is part of the default installation. Made with love.
