@@ -11,9 +11,9 @@ You will need Rust, to compile the DLL and ThinBASIC to call it.
 * [Install Rust](https://www.rust-lang.org/en-US/install.html) via Rustup. **Please** customize the installation to ensure 32 bit pipeline currently needed by ThinBASIC:
   * Run the rustup-init.exe
   * Press *2* to alter the default settings
-  * Enter *i686-pc-windows-msvc*
-  * Enter *stable*
-  * Confirm the choice with *y*
+  * For *Default host triple?* enter *i686-pc-windows-msvc*
+  * For *Default toolchain?* enter *stable*
+  * For *Modify PATH variable?* enter *y*
   * Proceed with installation with *1*
 
 ### Installing ThinBASIC
