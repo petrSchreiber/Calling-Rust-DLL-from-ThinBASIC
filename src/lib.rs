@@ -80,6 +80,6 @@ pub extern fn rsPrintASCIIZ(input: *const c_char){
 	println!("---");
 	let c_str = unsafe { CStr::from_ptr(input) };
 	let input_text = c_str.to_str();
-	println!("{:?}", input_text);
+	println!("{}", input_text.unwrap());
 	println!("---");
 }
