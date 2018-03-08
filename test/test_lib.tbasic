@@ -5,20 +5,66 @@ uses "console", "file"
 $RUST_INTEROP_DLL = "..\target\release\rust_interop.dll"  ' Hehe, this is here just for comfort, in production
                                                           ' version the path is not needed, just lay the DLL
                                                           ' by the script
- 
-declare function rsSumTwoSingles lib $RUST_INTEROP_DLL alias "rsSumTwoSingles" (byval a as single, byval b as single) as single
-declare function rsSumTwoDoubles lib $RUST_INTEROP_DLL alias "rsSumTwoDoubles" (byval a as double, byval b as double) as double
 
-declare sub      rsPrintASCIIZ   lib $RUST_INTEROP_DLL alias "rsPrintASCIIZ"   (byref s as asciiz)
+declare function rsSumTwoBytes    lib $RUST_INTEROP_DLL alias "rsSumTwoBytes"    (byval a as byte, byval b as byte) as byte
+declare function rsSumTwoWords    lib $RUST_INTEROP_DLL alias "rsSumTwoWords"    (byval a as word, byval b as word) as word
+declare function rsSumTwoDwords   lib $RUST_INTEROP_DLL alias "rsSumTwoDwords"   (byval a as dword, byval b as dword) as dword
+
+declare function rsSumTwoIntegers lib $RUST_INTEROP_DLL alias "rsSumTwoIntegers" (byval a as integer, byval b as integer) as integer
+declare function rsSumTwoLongs    lib $RUST_INTEROP_DLL alias "rsSumTwoLongs"    (byval a as long, byval b as long) as long
+declare function rsSumTwoQuads    lib $RUST_INTEROP_DLL alias "rsSumTwoQuads"    (byval a as quad, byval b as quad) as quad
+ 
+declare function rsSumTwoSingles  lib $RUST_INTEROP_DLL alias "rsSumTwoSingles"  (byval a as single, byval b as single) as single
+declare function rsSumTwoDoubles  lib $RUST_INTEROP_DLL alias "rsSumTwoDoubles"  (byval a as double, byval b as double) as double
+
+declare sub      rsPrintASCIIZ    lib $RUST_INTEROP_DLL alias "rsPrintASCIIZ"    (byref s as asciiz)
 
 function tbMain()
-  
-  printl "rsSumTwoSingles" in 10
-  printl format$(rsSumTwoSingles(1.1, 2.2))
+  printl "Numeric data types" in 14
+  printl
+
+  printl "rsSumTwoBytes" in 10
+  printl format$(rsSumTwoBytes(128, 64))
+  printl
+
+  printl "rsSumTwoWords" in 10
+  printl format$(rsSumTwoWords(32000, 32000), "#,")
+  printl
+
+  printl "rsSumTwoDwords" in 10                                       
+  printl format$(rsSumTwoDwords(2000000000, 2000000000), "#,")
   printl
   
+  printl "rsSumTwoLongs" in 10
+  printl format$(rsSumTwoLongs(1000000000, 500000000), "#,")
+  printl
+
+  printl "rsSumTwoQuads" in 10
+  printl format$(rsSumTwoQuads(2000000000, 1000000000), "#,")
+  printl
+
+  printl "rsSumTwoIntegers" in 10
+  printl format$(rsSumTwoIntegers(16000, 8000), "#,")
+  printl
+  
+  printl "rsSumTwoLongs" in 10
+  printl format$(rsSumTwoLongs(1000000000, 500000000), "#,")
+  printl
+
+  printl "rsSumTwoQuads" in 10
+  printl format$(rsSumTwoQuads(2000000000, 1000000000), "#,")
+  printl
+  
+  printl "rsSumTwoSingles" in 10
+  printl format$(rsSumTwoSingles(1.111111, 2.222222))
+  printl
+                       
   printl "rsSumTwoDoubles" in 10
-  printl format$(rsSumTwoDoubles(1.1, 2.2))
+  printl format$(rsSumTwoDoubles(1.11111111111111111, 2.2222222222222222))
+  printl
+
+  printl
+  printl "String data types" in 14
   printl
     
   printl "rsPrintASCIIZ" in 10    

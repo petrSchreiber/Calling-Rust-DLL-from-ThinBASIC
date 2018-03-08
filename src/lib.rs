@@ -17,6 +17,24 @@ use std::ffi::CStr;
 
 */
 
+// Byte or UInt8
+#[no_mangle]
+pub extern fn rsSumTwoBytes(a: u8, b: u8) -> u8 {
+	a + b
+}
+
+// Word or UInt16
+#[no_mangle]
+pub extern fn rsSumTwoWords(a: u16, b: u16) -> u16 {
+	a + b
+}
+
+// Dword or UInt32
+#[no_mangle]
+pub extern fn rsSumTwoDwords(a: u32, b: u32) -> u32 {
+	a + b
+}
+
 // Integer or Int16
 #[no_mangle]
 pub extern fn rsSumTwoIntegers(a: i16, b: i16) -> i16 {
@@ -26,6 +44,12 @@ pub extern fn rsSumTwoIntegers(a: i16, b: i16) -> i16 {
 // Long or Int32
 #[no_mangle]
 pub extern fn rsSumTwoLongs(a: i32, b: i32) -> i32 {
+	a + b
+}
+
+// Quad or Int64
+#[no_mangle]
+pub extern fn rsSumTwoQuads(a: i64, b: i64) -> i64 {
 	a + b
 }
 
