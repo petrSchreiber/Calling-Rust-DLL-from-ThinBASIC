@@ -6,18 +6,19 @@ $RUST_INTEROP_DLL = "..\target\release\rust_interop.dll"  ' Hehe, this is here j
                                                           ' version the path is not needed, just lay the DLL
                                                           ' by the script
 
-declare function rsSumTwoBytes    lib $RUST_INTEROP_DLL alias "rsSumTwoBytes"    (byval a as byte, byval b as byte) as byte
-declare function rsSumTwoWords    lib $RUST_INTEROP_DLL alias "rsSumTwoWords"    (byval a as word, byval b as word) as word
-declare function rsSumTwoDwords   lib $RUST_INTEROP_DLL alias "rsSumTwoDwords"   (byval a as dword, byval b as dword) as dword
+declare function rsSumTwoBytes     lib $RUST_INTEROP_DLL alias "rsSumTwoBytes"     (byval a as byte, byval b as byte) as byte
+declare function rsSumTwoWords     lib $RUST_INTEROP_DLL alias "rsSumTwoWords"     (byval a as word, byval b as word) as word
+declare function rsSumTwoDwords    lib $RUST_INTEROP_DLL alias "rsSumTwoDwords"    (byval a as dword, byval b as dword) as dword
 
-declare function rsSumTwoIntegers lib $RUST_INTEROP_DLL alias "rsSumTwoIntegers" (byval a as integer, byval b as integer) as integer
-declare function rsSumTwoLongs    lib $RUST_INTEROP_DLL alias "rsSumTwoLongs"    (byval a as long, byval b as long) as long
-declare function rsSumTwoQuads    lib $RUST_INTEROP_DLL alias "rsSumTwoQuads"    (byval a as quad, byval b as quad) as quad
+declare function rsSumTwoIntegers  lib $RUST_INTEROP_DLL alias "rsSumTwoIntegers"  (byval a as integer, byval b as integer) as integer
+declare function rsSumTwoLongs     lib $RUST_INTEROP_DLL alias "rsSumTwoLongs"     (byval a as long, byval b as long) as long
+declare function rsSumTwoQuads     lib $RUST_INTEROP_DLL alias "rsSumTwoQuads"     (byval a as quad, byval b as quad) as quad
  
-declare function rsSumTwoSingles  lib $RUST_INTEROP_DLL alias "rsSumTwoSingles"  (byval a as single, byval b as single) as single
-declare function rsSumTwoDoubles  lib $RUST_INTEROP_DLL alias "rsSumTwoDoubles"  (byval a as double, byval b as double) as double
+declare function rsSumTwoSingles   lib $RUST_INTEROP_DLL alias "rsSumTwoSingles"   (byval a as single, byval b as single) as single
+declare function rsSumTwoDoubles   lib $RUST_INTEROP_DLL alias "rsSumTwoDoubles"   (byval a as double, byval b as double) as double
 
-declare sub      rsPrintASCIIZ    lib $RUST_INTEROP_DLL alias "rsPrintASCIIZ"    (byref s as asciiz)
+declare sub      rsPrintAsciiz     lib $RUST_INTEROP_DLL alias "rsPrintAsciiz"     (byref sz as asciiz)
+declare function rsReturnAsciizPtr lib $RUST_INTEROP_DLL alias "rsReturnAsciizPtr" () as asciiz ptr
 
 function tbMain()
   printl "Numeric data types" in 14
@@ -67,9 +68,15 @@ function tbMain()
   printl "String data types" in 14
   printl
     
-  printl "rsPrintASCIIZ" in 10    
-  rsPrintASCIIZ("Hello Rust, I am ThinBASIC")
-  
+  printl "rsPrintAsciiz" in 10    
+  rsPrintAsciiz("Hello Rust, I am ThinBASIC")
+  printl
+
+  printl "rsReturnAsciizPtr" in 10  
+  printl peek$(asciiz, rsReturnAsciizPtr())
+  printl
+
+ 
   waitkey
   
 end function
