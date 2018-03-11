@@ -7,6 +7,7 @@
 */
 
 extern crate libc;    // Needed for string interop
+extern crate winrt;
 
 use libc::{c_char};
 use std::ffi::CStr;
@@ -95,4 +96,10 @@ pub extern fn rsReturnAsciizPtr() -> *const c_char {
     std::mem::forget(message);                                            // Make Rust forget the string, to prevent it from going outta scope
 
     p_message
+}
+
+// STRING
+#[no_mangle]
+pub extern fn rsReturnString() -> winrt::BStr {
+    return winrt::BStr::from("Hello ThinBASIC, I am Rust STRING")
 }

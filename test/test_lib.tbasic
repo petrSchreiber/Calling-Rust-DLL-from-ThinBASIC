@@ -19,6 +19,7 @@ declare function rsSumTwoDoubles   lib $RUST_INTEROP_DLL alias "rsSumTwoDoubles"
 
 declare sub      rsPrintAsciiz     lib $RUST_INTEROP_DLL alias "rsPrintAsciiz"     (byref sz as asciiz)
 declare function rsReturnAsciizPtr lib $RUST_INTEROP_DLL alias "rsReturnAsciizPtr" () as asciiz ptr
+declare function rsReturnString    lib $RUST_INTEROP_DLL alias "rsReturnString"    () as string
 
 function tbMain()
   printl "Numeric data types" in 14
@@ -69,13 +70,16 @@ function tbMain()
   printl
     
   printl "rsPrintAsciiz" in 10    
-  rsPrintAsciiz("Hello Rust, I am ThinBASIC")
+  rsPrintAsciiz("Hello Rust, I am ThinBASIC ASCIIZ")
   printl
 
   printl "rsReturnAsciizPtr" in 10  
   printl peek$(asciiz, rsReturnAsciizPtr())
   printl
 
+  printl "rsReturnString" in 10  
+  printl acode$(rsReturnString())
+  printl
  
   waitkey
   

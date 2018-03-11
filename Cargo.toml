@@ -5,6 +5,7 @@ authors = ["petrSchreiber <petrschreiber@gmail.com>"]
 
 [dependencies]
 libc = "0.2"
+winrt = "0.1.0"
 
 [lib]
 name = "rust_interop"

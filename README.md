@@ -21,7 +21,7 @@ A bit more _basic_ indeed. Just [download the installer](http://www.thinbasic.co
 
 ### How to make the DLL?
 * Checkout this repo and GOTO root directory (where this README is).
-* Fire up a console and cast the spell `cargo rustc --release`.
+* Fire up a console and cast the spell `cargo build --release`.
 * You will hear a wolf howl and the DLL will appear in `target/release`
 
 ### How to test the DLL?
