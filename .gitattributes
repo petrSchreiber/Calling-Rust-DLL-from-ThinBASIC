@@ -1,2 +1,2 @@
-*.tbasic eol=crlf
-*.tbasicu eol=crlf
+*.tbasic eol=crlf diff
+*.tbasicu eol=crlf diff
