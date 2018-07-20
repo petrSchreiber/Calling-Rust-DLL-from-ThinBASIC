@@ -15,3 +15,5 @@ pub mod floating_points;
 
 pub mod fixed_length_strings;
 pub mod dynamic_strings;
+
+pub mod user_defined_types;
