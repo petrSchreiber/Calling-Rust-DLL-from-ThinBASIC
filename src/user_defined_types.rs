@@ -35,11 +35,8 @@ pub extern fn rsMultiplyVector3DArray(vector_ptr: *mut Vector3D, count: i32, mul
     // Converting pointer to so called slice, the _mut allows us to write
     let vector = unsafe { ::std::slice::from_raw_parts_mut(vector_ptr, count as usize) };
 
-    // Calculating max index for vector slice
-    let max_index = count -1;
-
     // Writing new values
-    for i in 0..max_index {
+    for i in 0..count {
         vector[i as usize].x *= multiplier;
         vector[i as usize].y *= multiplier;
         vector[i as usize].z *= multiplier;
