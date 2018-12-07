@@ -1,4 +1,4 @@
-use thinbasic::TBString;
+use crate::thinbasic::TBString;
 
 // STRING
 #[no_mangle]
